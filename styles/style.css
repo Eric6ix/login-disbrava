@@ -1,0 +1,167 @@
+body {
+  background-color: rgb(34, 34, 43);
+  color: white;
+  font-family: poppinsregular;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0;
+  transition: transform 1s ease-out, opacity 0.6s ease-out;
+  position: relative;
+  z-index: 10;
+
+}
+
+header.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.title {
+  flex-direction: column;
+  line-height: 10px;
+
+  & img {
+    width: 50px;
+    height: 50px;
+    margin-right: 100px;
+    transform: rotate(0);
+    transition: 0.5s;
+    transition-delay: 0.3s;
+  }
+}
+
+.btn-create {
+  border: 2px solid rgb(201, 22, 22);
+  border-radius: 20px;
+  padding: 13px;
+}
+
+.btn-create:hover {
+  background-color: white;
+  color: rgb(63, 195, 58);
+  border: 2px solid rgb(155, 226, 152);
+}
+
+li {
+  display: inline-block;
+  margin: 20px;
+  cursor: pointer;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  transition: 0.5s all ease;
+}
+
+a:hover {
+  color: rgb(201, 22, 22);
+}
+
+h1 {
+  font-weight: 200;
+}
+
+.h2-box {
+  font-weight: 600;
+  font-family: poppinsbold;
+  font-size: 30px;
+  line-height: 10px;
+}
+
+h2 {
+  font-weight: 56;
+  line-height: 10px;
+  font-family: poppinsmedium;
+}
+
+span {
+  color: rgb(201, 22, 22);
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+}
+
+aside {
+  /* Posição inicial: fora da tela à esquerda */
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+  position: relative;
+}
+
+/* Quando estiver visível */
+aside.slide-in {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+article {
+  /* Posição inicial: fora da tela à esquerda */
+  transform: translateX(100%);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+  position: relative;
+}
+
+article.slide-article {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+p {
+  line-height: 20px;
+  max-width: 500px;
+  font-family: poppinslight;
+}
+
+img {
+  width: 700px;
+  margin-left: 100px;
+
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+
+  input {
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 20px;
+    border: 2px solid rgb(201, 22, 22);
+    background-color: white;
+  }
+}
+
+.btn-send {
+  background-color: rgb(201, 22, 22);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.5s all ease;
+  margin-top: 30px;
+}
+
+.btn-send:hover {
+  background-color: rgb(63, 195, 58);
+  color: rgb(223, 219, 219);
+  border: none;
+  padding: 15px;
+  transition: 0.5s all ease;
+  border: 2px solid rgb(155, 226, 152);
+}
