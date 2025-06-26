@@ -1,4 +1,4 @@
-// ANIMAÇÂO:
+// LOGIN SCREEN ANIMATION:
 window.addEventListener("load", function () {
     const header = document.getElementById("header");
     const list = document.getElementById("slide-aside");
@@ -10,7 +10,10 @@ window.addEventListener("load", function () {
         list.classList.add("slide-in");
         car.classList.add("slide-article");
 
-    }, 1500, 300, 550); // atraso
+    }, 2000, 300, 550); // atraso
 });
 
 
+ window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+  });
