@@ -1,8 +1,10 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
 body {
   background-color: rgb(34, 34, 43);
   color: white;
@@ -10,18 +12,18 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 15px;
+  overflow-x: hidden;
 }
 
+/* HEADER */
 header {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   opacity: 0;
   transition: transform 1s ease-out, opacity 0.6s ease-out;
-  position: relative;
   z-index: 10;
-
+  position: relative;
 }
 
 header.show {
@@ -29,21 +31,26 @@ header.show {
   opacity: 1;
 }
 
-.title {
-  flex-direction: column;
-  line-height: 10px;
-
-  & img {
-    width: 50px;
-    height: 50px;
-    margin-right: 100px;
-    transform: rotate(0);
-    transition: 0.5s;
-    transition-delay: 0.3s;
-  }
+.title img {
+  width: 50px;
+  height: 50px;
 }
 
+/* NAV */
+ul li {
+  display: inline-block;
+  margin: 20px;
+}
 
+a {
+  color: white;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+a:hover {
+  color: rgb(201, 22, 22);
+}
 
 .btn-login {
   border: 2px solid rgb(201, 22, 22);
@@ -54,65 +61,46 @@ header.show {
 .btn-login:hover {
   background-color: white;
   color: rgb(63, 195, 58);
-  border: 2px solid rgb(155, 226, 152);
+  border-color: rgb(155, 226, 152);
 }
 
-li {
-  display: inline-block;
-  margin: 20px;
-  cursor: pointer;
-}
-
-a {
-  color: white;
-  text-decoration: none;
-  transition: 0.5s all ease;
-}
-
-a:hover {
-  color: rgb(201, 22, 22);
-}
-
-
-
-
-
+/* MAIN */
 main {
- position: relative;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 70vh;
   overflow: hidden;
- 
 }
 
-
+/* FORM CONTAINER */
 .container {
   margin-top: 35px;
   z-index: 2;
-  border: 2px solid rgba(0, 0, 0, 0.195);
-  padding: 40px 120px 40px 120px;
   background-color: rgba(0, 0, 0, 0.195);
   border-radius: 15px;
-  & h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+  padding: 40px 120px;
+  border: 2px solid rgba(0, 0, 0, 0.195);
+}
+
+.container h2 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 form {
   display: flex;
   flex-direction: column;
   width: 300px;
+}
 
-  input {
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 20px;
-    border: 2px solid rgb(201, 22, 22);
-    background-color: white;
-  }
+form input {
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 20px;
+  border: 2px solid rgb(201, 22, 22);
+  background-color: white;
 }
 
 .btn-send {
@@ -121,20 +109,18 @@ form {
   border: none;
   padding: 15px;
   border-radius: 20px;
-  cursor: pointer;
-  transition: 0.5s all ease;
   margin-top: 30px;
+  cursor: pointer;
+  transition: 0.3s ease;
 }
 
 .btn-send:hover {
   background-color: rgb(63, 195, 58);
   color: rgb(223, 219, 219);
-  border: none;
-  padding: 15px;
-  transition: 0.5s all ease;
   border: 2px solid rgb(155, 226, 152);
 }
 
+/* IMAGENS DOS CARROS */
 .img-cars {
   position: absolute;
   top: 0;
@@ -142,32 +128,35 @@ form {
   width: 100%;
   height: 100%;
   z-index: 0;
-  pointer-events: none; /* Impede clique nos carros */
+  pointer-events: none;
 }
 
 .car {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  max-width: 400px;
   opacity: 0;
+  max-width: 400px;
   transition: transform 2s ease, opacity 2s ease;
 }
+
 .car-left {
-  left: -500px; /* Inicial fora da tela à esquerda */
+  left: 50%;
+  transform: translate(-150%, -50%);
 }
 
 .car-right {
-  right: -500px; /* Inicial fora da tela à direita */
+  right: 50%;
+  transform: translate(150%, -50%);
 }
 
-/* Após carregamento */
+/* Quando a página carrega */
 body.loaded .car-left {
-  transform: translate(100px, -50%);
+  transform: translate(30%, -50%);
   opacity: 1;
 }
 
 body.loaded .car-right {
-  transform: translate(-100px, -50%);
+  transform: translate(-30%, -50%);
   opacity: 1;
 }
